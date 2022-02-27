@@ -7,8 +7,8 @@ const MyInput = styled.input`
   padding: 8px;
   margin-bottom: 25px;
   box-sizing: border-box;
-  border: solid 1px #000;
-  border-radius: 2px;
+  border: solid 1px rgba(0,0,0,0.2);
+  border-radius: 4px;
   width: 100%;
   font-size: 18px;
   font-family: Lato
@@ -19,9 +19,6 @@ const ErrorDialog = styled.div`
   font-weight: bold;
   color: #d82148;
 `;
-// const ContainerLogin = styled.div`
-//   margint-bottom: 0px;
-// `;
 
 export const Input = ({ ...props }) => {
   const [field, meta] = useField(props);

@@ -1,5 +1,6 @@
 import { Form, Formik } from "formik";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Button } from "../Button";
 import { Header } from "../Header";
@@ -8,20 +9,27 @@ import { ContainerForm } from "./ContainerForm";
 import { Titulo } from "./Titulo";
 
 const Login = () => {
+  const initialValues = { user: "", password: "" };
+  let navigate = useNavigate();
+
   const handleSubmit = ({ user, password }) => {
-    console.log({ user, password });
+    const loggedIn = true;
+
+    if (loggedIn) {
+      navigate("dashboardImexa");
+    } else {
+      navigate("/");
+    }
   };
+  
+
   return (
     <>
       <Header>IMEXA App v2</Header>
       <Formik
-        initialValues={{
-          user: "",
-          password: "",
-        }}
+        initialValues={initialValues}
         validationSchema={Yup.object({
           user: Yup.string().required("Este campo es obligatorio"),
-
           password: Yup.string().required("Este campo es obligatorio"),
         })}
         onSubmit={handleSubmit}
@@ -41,12 +49,13 @@ const Login = () => {
               autoComplete="current-password"
               placeholder="Password"
             />
-            <Button type="submit">Iniciar Sesion</Button>
-            <Button type="button" onClick={() => console.log('Registrar')}>Registrar Usuario</Button>
+            <Button type="submit">Entrar</Button>
+            <Button type="button" onClick={() => navigate('/registrar')}>
+              Crear cuenta
+            </Button>
           </ContainerForm>
         </Form>
       </Formik>
-      {/* <Footer>Contactame</Footer> */}
     </>
   );
 };

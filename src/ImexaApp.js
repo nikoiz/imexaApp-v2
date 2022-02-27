@@ -1,8 +1,8 @@
-import Login  from "./components/login-form/Login";
+import { AppRouter } from "./routers/AppRouter";
 
 function ImexaApp() {
   return (
-    <Login/>
+    <AppRouter/>
   );
 }
 
