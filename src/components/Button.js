@@ -19,7 +19,4 @@ export const Button = styled.button`
     font-size:1.6em;
     transition: all 0.2s ease;
   }
-
-
-
 `;

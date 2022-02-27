@@ -1,7 +1,11 @@
-import React from 'react'
+import React from "react";
+import { Navbar } from "../Navbar/Navbar";
 
 export const MainDashboard = () => {
   return (
-    <div>Hola</div>
-  )
-}
+    <>
+      <Navbar />
+      <h1>Hola</h1>
+    </>
+  );
+};
