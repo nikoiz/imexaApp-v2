@@ -18,6 +18,11 @@ export const TableHeader = styled(TableElements)`
   text-align: center;
 `;
 export const TableRow = styled.tr`
+`;
+
+export const TableHead = styled.thead``;
+
+export const TableBody = styled.tbody`
   &:nth-child(even) {
     background-color: gray;
   }
