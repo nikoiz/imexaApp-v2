@@ -184,21 +184,8 @@ export const FacturaVenta = [
 ];
 
 export const Inventario = [
-  {
-    _id: "622570749935f9a66df80511",
-    warehouse: "Chamizal 0",
-    value: 227328,
-  },
-  {
-    _id: "62257074154ffa4f915f2a9a",
-    warehouse: "Jeff 2",
-    value: 927861,
-  },
-  {
-    _id: "62257074772c7b3ed15ed32e",
-    warehouse: "Cresaptown 3",
-    value: 517778,
-  },
+
+
   {
     _id: "62257074ff16bd9858871455",
     warehouse: "Fairacres 1",

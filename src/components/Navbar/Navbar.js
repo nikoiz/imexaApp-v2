@@ -21,6 +21,7 @@ export const Navbar = () => {
       <NavbarInnerContainer>
         <LeftContainer>
           <NavbarLinkContainer>
+            <NavbarLink to={"/dashboardImexa"}>Home</NavbarLink>
             <NavbarLink to={"/"}>Inventario</NavbarLink>
             <NavbarLink to={"/2"}>Gastos</NavbarLink>
             <NavbarLink to={"/3"}>Facturas</NavbarLink>

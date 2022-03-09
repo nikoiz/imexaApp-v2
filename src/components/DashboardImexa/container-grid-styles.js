@@ -13,9 +13,9 @@ export const Container = styled.div`
   grid-template-areas: "sidebar main main main";
   transition: all 0.25s ease-in-out;
 
-  @media (max-width: 550px) {
+  @media (max-width: 750px) {
     grid-template-columns: 1fr;
-    grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1fr;
+    grid-template-rows: auto;
     grid-template-areas:
       "sidebar"
       "main";
