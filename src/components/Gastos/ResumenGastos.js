@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Gastos } from "../../example_data_base/DataExample";
 import { Button } from "../Button";
 import { formatter } from "../DashboardImexa/Card/Card";
@@ -12,6 +12,16 @@ import {
 } from "../DashboardImexa/Card/card-table-styles";
 
 export const ResumenGastos = () => {
+
+  const [dataGastos, setDataGastos] = useState(Gastos);
+
+  const changePaidState = useCallback((id) => {
+    setDataGastos((gasto) =>
+      gasto.map((item) =>
+        item._id === id ? { ...item, paid: !item.paid } : item
+      )
+    );
+  }, []);
 
   return (
     <>
@@ -27,7 +37,7 @@ export const ResumenGastos = () => {
             <TableHeader>Acciones</TableHeader>
           </TableRow>
         </TableHead>
-        {Gastos.map((gasto, i) => (
+        {dataGastos.map((gasto, i) => (
           <TableBody key={gasto._id}>
             <TableRow>
               <TableData>{gasto._id}</TableData>
@@ -39,14 +49,18 @@ export const ResumenGastos = () => {
                 {gasto.paid === false ? "No pagado" : "Pagado"}
               </TableData>
               <TableData>
-                <Button
-                  customFontSize={"1vw"}
-                  customWidth={"70%"}
-                  Hover={"false"}
-                  onClick={() => console.log('click')}
-                >
-                  Pagar gasto
-                </Button>
+                {gasto.paid ? (
+                  "--"
+                ) : (
+                  <Button
+                    customFontSize={"1vw"}
+                    customWidth={"70%"}
+                    Hover={"false"}
+                    onClick={() => changePaidState(gasto._id)}
+                  >
+                    Pagar gasto
+                  </Button>
+                )}
               </TableData>
             </TableRow>
           </TableBody>
