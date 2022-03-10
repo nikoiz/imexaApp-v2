@@ -42,9 +42,17 @@ const cardInfo = [
   },
 ];
 
+export const formatter = new Intl.NumberFormat("es-CL", {
+  style: "currency",
+  currency: "CLP",
+  maximumFractionDigits: 0,
+});
+
 const checkInfo = (inventario) => {
   console.log(inventario);
 };
+
+
 
 export const Card = () => {
   return (
@@ -67,7 +75,7 @@ export const Card = () => {
                   <TableRow onClick={() => checkInfo(inventario)}>
                     <TableData>{i}</TableData>
                     <TableData>{inventario.warehouse}</TableData>
-                    <TableData>{inventario.value}</TableData>
+                    <TableData>{formatter.format(inventario.value)}</TableData>
                   </TableRow>
                 </TableBody>
               ))}
@@ -91,7 +99,7 @@ export const Card = () => {
                       <TableData>{i}</TableData>
                       <TableData>{gasto.description}</TableData>
                       <TableData>{gasto.date}</TableData>
-                      <TableData>{gasto.value}</TableData>
+                      <TableData>{formatter.format(gasto.value)}</TableData>
                     </TableRow>
                   </TableBody>
                 ) : null
@@ -108,13 +116,14 @@ export const Card = () => {
                   <TableHeader>Fecha</TableHeader>
                 </TableRow>
               </TableHead>
-              {FacturasCompra.map((compra) =>
+
+              {FacturasCompra.map((compra, i) =>
                 !compra.paid ? (
                   <TableBody key={compra._id}>
                     <TableRow onClick={() => checkInfo(compra)}>
                       <TableData>{i}</TableData>
                       <TableData>{compra._id}</TableData>
-                      <TableData>{compra.value}</TableData>
+                      <TableData>{formatter.format(compra.value)}</TableData>
                       <TableData>{compra.date}</TableData>
                     </TableRow>
                   </TableBody>
@@ -139,7 +148,7 @@ export const Card = () => {
                     <TableRow onClick={() => checkInfo(venta)}>
                       <TableData>{i}</TableData>
                       <TableData>{venta._id}</TableData>
-                      <TableData>{venta.value}</TableData>
+                      <TableData>{formatter.format(venta.value)}</TableData>
                       <TableData>{venta.date}</TableData>
                     </TableRow>
                   </TableBody>

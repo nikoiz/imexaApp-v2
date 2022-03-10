@@ -23,7 +23,7 @@ export const Navbar = () => {
           <NavbarLinkContainer>
             <NavbarLink to={"/dashboardImexa"}>Home</NavbarLink>
             <NavbarLink to={"/"}>Inventario</NavbarLink>
-            <NavbarLink to={"/2"}>Gastos</NavbarLink>
+            <NavbarLink to={"/gastos/resumen"}>Gastos</NavbarLink>
             <NavbarLink to={"/3"}>Facturas</NavbarLink>
             <NavbarLink to={"/4"}>Salir</NavbarLink>
             <OpenLinksButton

@@ -10,6 +10,7 @@ export const MyCard = styled.div`
   font-size: calc(1 * (0.7vw + 0.5vh));
   overflow: auto;
   height: 370px;
+  // font-size: calc((1vw + 0.5vh));
 
 `;
 

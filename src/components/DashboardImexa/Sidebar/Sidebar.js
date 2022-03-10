@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const MySidebar = styled.div`
   background: #9aaab7;
-  border: 1px solid rgba(0,0,0,0.3);
-  border-radius:4px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
   box-sizing: border-box;
   height: 100%;
   grid-area: sidebar;
@@ -12,6 +12,6 @@ const MySidebar = styled.div`
   padding: 0.5rem;
 `;
 
-export const Sidebar = () => {
-  return <MySidebar>Hola</MySidebar>;
+export const Sidebar = ({ children }) => {
+  return <MySidebar>{children}</MySidebar>;
 };
