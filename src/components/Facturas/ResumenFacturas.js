@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { Gastos } from "../../example_data_base/DataExample";
+import { FacturasCompra } from "../../example_data_base/DataExample";
 import { Button } from "../Button";
 import { formatter } from "../DashboardImexa/Card/Card";
 import {
@@ -11,17 +11,16 @@ import {
   TableRow,
 } from "../DashboardImexa/Card/card-table-styles";
 
-export const ResumenGastos = () => {
-  const [dataGastos, setDataGastos] = useState(Gastos);
+export const ResumenFacturas = () => {
+  const [facturaCompra, setFacturaCompra] = useState(FacturasCompra);
 
   const changePaidState = useCallback((id) => {
-    setDataGastos((gasto) =>
+    setFacturaCompra((gasto) =>
       gasto.map((item) =>
         item._id === id ? { ...item, paid: !item.paid } : item
       )
     );
   }, []);
-  
 
   return (
     <>
@@ -29,7 +28,7 @@ export const ResumenGastos = () => {
         <TableHead>
           <TableRow>
             <TableHeader>ID</TableHeader>
-            <TableHeader>Descripcion Gasto</TableHeader>
+            <TableHeader>Descripcion Factura</TableHeader>
             <TableHeader>Valor</TableHeader>
             <TableHeader>Bodega</TableHeader>
             <TableHeader>Fecha</TableHeader>
@@ -37,7 +36,7 @@ export const ResumenGastos = () => {
             <TableHeader>Acciones</TableHeader>
           </TableRow>
         </TableHead>
-        {dataGastos.map((gasto) => (
+        {facturaCompra.map((gasto) => (
           <TableBody key={gasto._id}>
             <TableRow>
               <TableData>{gasto._id}</TableData>
