@@ -24,7 +24,7 @@ export const Navbar = () => {
             <NavbarLink to={"/dashboardImexa"}>Home</NavbarLink>
             <NavbarLink to={"/"}>Inventario</NavbarLink>
             <NavbarLink to={"/gastos/resumen"}>Gastos</NavbarLink>
-            <NavbarLink to={"/facturas"}>Facturas</NavbarLink>
+            <NavbarLink to={"/facturas/resumenFacturas"}>Facturas</NavbarLink>
             <NavbarLink to={"/4"}>Salir</NavbarLink>
             <OpenLinksButton
               onClick={() => {
@@ -44,7 +44,7 @@ export const Navbar = () => {
           <NavbarLinkExtended to={"/dashboardImexa"}>Home</NavbarLinkExtended>
           <NavbarLinkExtended to={"/"}>Inventario</NavbarLinkExtended>
           <NavbarLinkExtended to={"/gastos/resumen"}>Gastos</NavbarLinkExtended>
-          <NavbarLinkExtended to={"/facturas"}>Facturas</NavbarLinkExtended>
+          <NavbarLinkExtended to={"/facturas/resumenFacturas"}>Facturas</NavbarLinkExtended>
           <NavbarLinkExtended to={"/4"}>Salir</NavbarLinkExtended>
         </NavbarExtendedContainer>
       )}

@@ -5,10 +5,20 @@ export const MenuFacturas = [
   },
   {
     name: "Facturas de compra",
-    link: "compra",
+    link: "resumenCompras",
+  },
+  {
+    name: "Agregar factura compra",
+    link: "addCompra",
+    accion: true,
   },
   {
     name: "Facturas de venta",
-    link: "venta",
+    link: "resumenVentas",
+  },
+  {
+    name: "Agregar factura venta",
+    link: "addVenta",
+    accion: true,
   },
 ];

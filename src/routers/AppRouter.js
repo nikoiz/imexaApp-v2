@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { MainDashboard } from "../components/DashboardImexa/MainDashboard";
+import { AddFactura } from "../components/Facturas/AddFactura";
 import { FacturasMain } from "../components/Facturas/FacturasMain";
 import { GastosMain } from "../components/Gastos/GastosMain";
 import Login from "../components/login-form/Login";
@@ -17,6 +18,7 @@ export const AppRouter = () => {
         <Route path="registrar" element={<Registrar />} />
         <Route path="gastos/*" element={<GastosMain />} />
         <Route path="facturas/*" element={<FacturasMain />} />
+        <Route path="facturas/compra/add" element={<AddFactura />} />
       </Routes>
     </>
   );

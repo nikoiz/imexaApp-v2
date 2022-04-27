@@ -13,9 +13,12 @@ export const ItemList = styled.li`
   border-radius: 4px;
   transition: all 0.3s ease-out;
   font-family: Roboto;
+  margin-left: ${(props) => props.customMargin};
+  background-color: ${(props) => props.customBg || 'rgba(4, 28, 50, .85)'};
+
 
   &:hover {
-    background-color: #FF4C29;
+    background-color: #ff4c29;
     transition: all 0.2s ease;
   }
 `;

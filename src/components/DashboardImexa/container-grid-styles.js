@@ -5,7 +5,6 @@ export const Container = styled.div`
   box-sizing: border-box;
   padding: 5px;
   color: white;
-
   display: grid;
   grid-gap: 0.25rem;
   grid-template-columns: 0.2fr 1fr;
