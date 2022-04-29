@@ -31,3 +31,8 @@ export const ContainerDetalleFactura = styled.div`
   grid-column-end: 4;
   box-sizing: border-box;
 `;
+
+export const ContainerTableProductos = styled.div`
+height: 210px;
+overflow-y: auto;
+`

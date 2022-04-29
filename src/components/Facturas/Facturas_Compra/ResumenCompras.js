@@ -14,10 +14,15 @@ import {
 export const ResumenCompras = () => {
   const [facturaCompra, setFacturaCompra] = useState(FacturasCompra);
 
-  const changePaidState = useCallback((id) => {
+  if (facturaCompra.length > 0) {
+    console.log("Resumen");
+    console.log(facturaCompra.map((x) => x));
+  }
+
+  const changePaidState = useCallback((folio) => {
     setFacturaCompra((compra) =>
       compra.map((item) =>
-        item._id === id ? { ...item, paid: !item.paid } : item
+        item.factura.folio === folio ? { ...item, pagado: !item.factura.pagado } : item
       )
     );
   }, []);
@@ -27,43 +32,47 @@ export const ResumenCompras = () => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableHeader>ID</TableHeader>
-            <TableHeader>Descripcion Factura</TableHeader>
-            <TableHeader>Valor</TableHeader>
-            <TableHeader>Bodega</TableHeader>
+            <TableHeader>Folio</TableHeader>
             <TableHeader>Fecha</TableHeader>
+            <TableHeader>Vendedor</TableHeader>
+            <TableHeader>RUT</TableHeader>
             <TableHeader>Pagado</TableHeader>
+            <TableHeader>Detalle</TableHeader>
             <TableHeader>Acciones</TableHeader>
           </TableRow>
         </TableHead>
-        {facturaCompra.map((compra) => (
-          <TableBody key={compra._id}>
-            <TableRow>
-              <TableData>{compra._id}</TableData>
-              <TableData>{compra.description}</TableData>
-              <TableData>{formatter.format(compra.value)}</TableData>
-              <TableData>{compra.warehouse}</TableData>
-              <TableData>{compra.date}</TableData>
-              <TableData>
-                {compra.paid === false ? "No pagado" : "Pagado"}
-              </TableData>
-              <TableData>
-                {compra.paid ? (
-                  "--"
-                ) : (
-                  <Button
-                    customFontSize={"1vw"}
-                    customWidth={"70%"}
-                    Hover={"false"}
-                    onClick={() => changePaidState(compra._id)}
-                  >
-                    Pagar Factura
-                  </Button>
-                )}
-              </TableData>
-            </TableRow>
-          </TableBody>
-        ))}
+        {facturaCompra.length > 0 && facturaCompra != null
+          ? facturaCompra.map((compra) => (
+              <TableBody key={compra.factura.folio}>
+                <TableRow>
+                  <TableData>{compra.factura.folio}</TableData>
+                  <TableData>{compra.factura.fecha}</TableData>
+                  {/* <TableData>{formatter.format(compra.value)}</TableData> */}
+                  <TableData>{compra.factura.nombre}</TableData>
+                  <TableData>{compra.factura.rut}</TableData>
+                  <TableData>
+                    {compra.factura.pagado === "false" ? "No pagado" : "Pagado"}
+                  </TableData>
+                  <TableData>Detalle</TableData>
+
+                  <TableData>
+                    {compra.factura.pagado === "true" ? (
+                      "--"
+                    ) : (
+                      <Button
+                        customFontSize={"1vw"}
+                        customWidth={"70%"}
+                        Hover={"false"}
+                        onClick={() => changePaidState(compra.factura.folio)}
+                      >
+                        Pagar Factura
+                      </Button>
+                    )}
+                  </TableData>
+                </TableRow>
+              </TableBody>
+            ))
+          : null}
       </Table>
     </>
   );
