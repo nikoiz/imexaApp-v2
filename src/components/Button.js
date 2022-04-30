@@ -16,11 +16,11 @@ export const Button = styled.button`
 
   &:disabled {
     background-color: gray;
-
+    cursor: not-allowed;
     &:hover {
-      background: #334756;
+      background: gray;
       width: ${(props) => props.customWidth || "100%"};
-  font-size: ${(props) => props.customFontSize || "1.5em"};
+      font-size: ${(props) => props.customFontSize || "1.5em"};
 
     }
   }

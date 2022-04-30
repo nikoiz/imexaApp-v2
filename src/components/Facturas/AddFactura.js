@@ -9,11 +9,15 @@ export const AddFactura = (props) => {
   const [datosFactura, setDatosFactura] = useState([]);
   const [fetch, setFetch] = useState(false);
 
+
   useEffect(() => {
+    setFetch(!fetch)
     if (fetch) {
-      FacturasCompra.push(datosFactura);
+      FacturasCompra.push(datosFactura)
     }
-  }, [fetch]);
+  }, [datosFactura])
+  
+
 
   return tipoFactura === "compra" ? (
     <FormFacturaCompra factura={setDatosFactura} fetch={setFetch} />

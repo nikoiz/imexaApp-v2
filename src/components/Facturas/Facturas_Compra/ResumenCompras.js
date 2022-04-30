@@ -12,20 +12,16 @@ import {
 } from "../../DashboardImexa/Card/card-table-styles";
 
 export const ResumenCompras = () => {
+
   const [facturaCompra, setFacturaCompra] = useState(FacturasCompra);
 
-  if (facturaCompra.length > 0) {
-    console.log("Resumen");
-    console.log(facturaCompra.map((x) => x));
-  }
-
-  const changePaidState = useCallback((folio) => {
-    setFacturaCompra((compra) =>
-      compra.map((item) =>
-        item.factura.folio === folio ? { ...item, pagado: !item.factura.pagado } : item
-      )
-    );
-  }, []);
+  // const changePaidState = useCallback((folio) => {
+  //   setFacturaCompra((compra) =>
+  //     compra.map((item) =>
+  //       item.factura.folio === folio ? { ...item, pagado: !item.factura.pagado } : item
+  //     )
+  //   );
+  // }, []);
 
   return (
     <>
@@ -47,7 +43,6 @@ export const ResumenCompras = () => {
                 <TableRow>
                   <TableData>{compra.factura.folio}</TableData>
                   <TableData>{compra.factura.fecha}</TableData>
-                  {/* <TableData>{formatter.format(compra.value)}</TableData> */}
                   <TableData>{compra.factura.nombre}</TableData>
                   <TableData>{compra.factura.rut}</TableData>
                   <TableData>
@@ -63,7 +58,7 @@ export const ResumenCompras = () => {
                         customFontSize={"1vw"}
                         customWidth={"70%"}
                         Hover={"false"}
-                        onClick={() => changePaidState(compra.factura.folio)}
+                        // onClick={() => changePaidState(compra.factura.folio)}
                       >
                         Pagar Factura
                       </Button>

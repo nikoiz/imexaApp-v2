@@ -65,64 +65,7 @@ export const Gastos = [
   },
 ];
 
-export const FacturasCompra = [
-  // {
-  //   _id: "62257001e6bf96613e3c5428",
-  //   description: "TECHADE",
-  //   value: 1042550,
-  //   warehouse: "Downsville 1",
-  //   date: "05-03-2022",
-  //   paid: true,
-  // },
-  // {
-  //   _id: "622570019236eed5295fd5c2",
-  //   description: "ENDIPIN",
-  //   value: 70975,
-  //   warehouse: "Kiskimere 0",
-  //   date: "19-01-2022",
-  //   paid: true,
-  // },
-  // {
-  //   _id: "62257001af331e4ce82ddcde",
-  //   description: "BUZZNESS",
-  //   value: 1188876,
-  //   warehouse: "Escondida 0",
-  //   date: "07-02-2022",
-  //   paid: false,
-  // },
-  // {
-  //   _id: "62257001eebb2ebbd2e75734",
-  //   description: "GINKLE",
-  //   value: 3945715,
-  //   warehouse: "Urbana 0",
-  //   date: "10-02-2022",
-  //   paid: true,
-  // },
-  // {
-  //   _id: "62257001bc865af8260cc676",
-  //   description: "EYEWAX",
-  //   value: 2250788,
-  //   warehouse: "Gracey 3",
-  //   date: "14-01-2022",
-  //   paid: false,
-  // },
-  // {
-  //   _id: "622570019e3b7345f56a1bfa",
-  //   description: "RODEMCO",
-  //   value: 3174780,
-  //   warehouse: "Clayville 2",
-  //   date: "21-02-2022",
-  //   paid: true,
-  // },
-  // {
-  //   _id: "6225700124247d14ec13a8b8",
-  //   description: "BULLJUICE",
-  //   value: 1801083,
-  //   warehouse: "Sims 1",
-  //   date: "06-01-2022",
-  //   paid: false,
-  // },
-];
+export const FacturasCompra = [];
 
 export const FacturaVenta = [
   {

@@ -30,8 +30,8 @@ export const TableProductosAgregados = (props) => {
 
           {data.length > 0 && data != null
             ? data.map((producto, i) => (
-                <TableBody key={producto.nombreProducto}>
-                  <TableRow key={producto.nombreProducto}>
+                <TableBody key={i}>
+                  <TableRow>
                     <TableData>{i + 1}</TableData>
                     <TableData>{producto.nombreProducto}</TableData>
                     <TableData>

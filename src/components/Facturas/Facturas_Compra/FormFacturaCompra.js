@@ -22,12 +22,15 @@ export const FormFacturaCompra = (props) => {
     nombreProducto: "", valorProducto: "", cantidadProducto: "", valorTotalCompra: "", bodegaProducto: "",
   };
 
-  const handleSubmit = ({ resetForm }) => {
+  const handleSubmit = ( values , { resetForm }) => {
 
     if ( Object.keys(compra.factura).length > 0 && Object.keys(compra.detalle).length > 0 ) {
       props.fetch(true);
       props.factura(compra);
-      resetForm({folio: "", fecha: "", nombre: "", rut: "", pagado: "", nombreProducto: "", valorProducto: "", cantidadProducto: "", valorTotalCompra: "", bodegaProducto: "",});
+      resetForm(values);
+      setCompra({ factura: {} , detalle: [] })
+      setProducto([])
+      alert("Factura creada");
     } else {
       alert("Se deben agregar productos para crear factura.");
     }
@@ -35,7 +38,7 @@ export const FormFacturaCompra = (props) => {
 
   const handleAgregarProducto = (values, isValid) => {
       
-    const {folio, fecha, nombre, rut, pagado, nombreProducto, valorProducto, cantidadProducto, valorTotalCompra, bodegaProducto,} = values;
+    const { folio, fecha, nombre, rut, pagado, nombreProducto, valorProducto, cantidadProducto, valorTotalCompra, bodegaProducto } = values;
 
     const detalleProducto = {
       nombreProducto: nombreProducto,
@@ -87,7 +90,7 @@ export const FormFacturaCompra = (props) => {
       onSubmit={handleSubmit}
       initialErrors={initialValues}
     >
-      {({ dirty, isValid, values , setFieldTouched , handleSubmit , isValidating}) => (
+      {({ dirty, isValid, values }) => (
         <Form>
           <ContainerFactura>
             <ContainerDatosPersonales>
@@ -107,13 +110,13 @@ export const FormFacturaCompra = (props) => {
               <Input autoComplete="cantidad-producto" type="text" name="cantidadProducto" placeholder="Cantidad"/>
               <Input autoComplete="valor-total-producto" type="text" name="valorTotalCompra" placeholder="Valor Total"/>
               <Input autoComplete="bodega-producto" type="text" name="bodegaProducto" placeholder="Bodega"/>
-              <Button type="button" onClick={() => handleAgregarProducto(values, isValid ) }  /*disabled={!isValid}*/>
+              <Button type="button" onClick={() => handleAgregarProducto(values, isValid ) } disabled={!isValid || !dirty}>
                 Agregar producto
               </Button>
             </ContainerDetalleFactura>
           </ContainerFactura>
 
-          <Button type="submit">Crear Factura</Button>
+          <Button type="submit" disabled={!isValid || !dirty}>Crear Factura </Button>
 
         {producto.length > 0 && producto !== null ? (
           <TableProductosAgregados data={producto}/>

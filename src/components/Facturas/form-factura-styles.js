@@ -33,6 +33,7 @@ export const ContainerDetalleFactura = styled.div`
 `;
 
 export const ContainerTableProductos = styled.div`
-height: 210px;
+box-sizing: border-box;
+height: 180px;
 overflow-y: auto;
 `
