@@ -14,6 +14,17 @@ export const Button = styled.button`
   margin-top: 10px;
   margin-bottom: 20px;
 
+  &:disabled {
+    background-color: gray;
+
+    &:hover {
+      background: #334756;
+      width: ${(props) => props.customWidth || "100%"};
+  font-size: ${(props) => props.customFontSize || "1.5em"};
+
+    }
+  }
+
   ${(props) =>
     props.Hover === "false"
       ? `&:hover {

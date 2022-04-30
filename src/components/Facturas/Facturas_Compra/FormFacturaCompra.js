@@ -13,12 +13,9 @@ import { Button } from "../../Button";
 import { TableProductosAgregados } from "../TableProductosAgregados";
 
 export const FormFacturaCompra = (props) => {
-  const [producto , setProducto] = useState([])
 
-  const compra = {
-    factura: {},
-    detalle: [],
-  };
+  const [producto, setProducto] = useState([]);
+  const [compra, setCompra] = useState({ factura: {} , detalle: [] })
 
   const initialValues = { 
     folio: "", fecha: "", nombre: "", rut: "", pagado: false,
@@ -26,10 +23,6 @@ export const FormFacturaCompra = (props) => {
   };
 
   const handleSubmit = ({ resetForm }) => {
-
-    console.log(compra);
-
-    console.log(Object.keys(compra.factura).length , Object.keys(compra.detalle).length  );
 
     if ( Object.keys(compra.factura).length > 0 && Object.keys(compra.detalle).length > 0 ) {
       props.fetch(true);
@@ -40,175 +33,88 @@ export const FormFacturaCompra = (props) => {
     }
   };
 
-  const handleAgregarProducto = (value) => {
-    const {folio, fecha, nombre, rut, pagado, nombreProducto, valorProducto, cantidadProducto, valorTotalCompra, bodegaProducto,} = value;
+  const handleAgregarProducto = (values, isValid) => {
+      
+    const {folio, fecha, nombre, rut, pagado, nombreProducto, valorProducto, cantidadProducto, valorTotalCompra, bodegaProducto,} = values;
 
     const detalleProducto = {
       nombreProducto: nombreProducto,
       valorProducto: valorProducto,
       cantidadProducto: cantidadProducto,
       valorTotalCompra: valorTotalCompra,
-      bodegaProducto: bodegaProducto }
+      bodegaProducto: bodegaProducto,
+    };
 
-    if (Object.keys(compra.factura).length === 0) {
+    const datosFactura = {
+      folio: folio,
+      fecha: fecha,
+      nombre: nombre,
+      rut: rut,
+      pagado: pagado,
+    };
 
-      compra.factura = {
-        folio: folio,
-        fecha: fecha,
-        nombre: nombre,
-        rut: rut,
-        pagado: pagado,
-      };
+    if (isValid) {
+      if (Object.keys(compra.factura).length === 0) {
+        setCompra({ ...compra, factura: { ...datosFactura }, detalle: [...compra.detalle, detalleProducto] });
+        setProducto([...producto, detalleProducto]);
 
-      if (
-        folio === "" ||
-        fecha === "" ||
-        nombre === "" ||
-        rut === "" ||
-        pagado === "" ||
-        nombreProducto === "" ||
-        valorProducto === "" ||
-        cantidadProducto === "" ||
-        valorTotalCompra === "" ||
-        bodegaProducto === ""
-      ) {
-        alert("Se deben agregar productos para crear factura.");
-      } else {
-
-        compra.detalle.push(detalleProducto);
-        setProducto([...producto, detalleProducto])
-
+        alert("Factura creada \nProducto agregado");
+      } else if (Object.keys(compra.factura).length > 0) {
+        setCompra({ ...compra, detalle: [...compra.detalle, detalleProducto] });
+        setProducto([...producto, detalleProducto]);
         alert("Producto agregado");
       }
-
-      // resetForm({ values: { nombreProducto: "", valorProducto: "", cantidadProducto: "", valorTotalCompra: "", bodegaProducto: "",} });
-    } else if (Object.keys(compra.factura).length > 0) {
-      if (
-        folio === "" ||
-        fecha === "" ||
-        nombre === "" ||
-        rut === "" ||
-        pagado === "" ||
-        nombreProducto === "" ||
-        valorProducto === "" ||
-        cantidadProducto === "" ||
-        valorTotalCompra === "" ||
-        bodegaProducto === ""
-      ) {
-        alert("Se deben agregar productos para crear factura.");
-      } else {
-        compra.detalle.push(detalleProducto);
-        setProducto([...producto, detalleProducto])
-        alert("Producto agregado");
-      }
-
-      // resetForm({ values: { nombreProducto: "...Cargando", valorProducto: "Cargando", cantidadProducto: "Cargando", valorTotalCompra: "Cargando", bodegaProducto: "Cargando",} });
-    }
-
-    console.log(compra);
+    } else {
+      alert("Falta completar campos");
+    }      
   };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={Yup.object({
-        folio: Yup.number()
-          .required("Este campo es obligatorio")
-          .typeError("Debe ser numerico"),
+        folio: Yup.number().required("Este campo es obligatorio").typeError("Debe ser numerico"),
         fecha: Yup.date().required("Este campo es obligatorio"),
         nombre: Yup.string().required("Este campo es obligatorio"),
         rut: Yup.string().required("Este campo es obligatorio"),
         pagado: Yup.boolean().required("Este campo es obligatorio"),
         nombreProducto: Yup.string().required("Este campo es obligatorio"),
-        valorProducto: Yup.number()
-          .required("Este campo es obligatorio")
-          .typeError("Debe ser numerico"),
-        cantidadProducto: Yup.number()
-          .required("Este campo es obligatorio")
-          .typeError("Debe ser numerico"),
-        valorTotalCompra: Yup.number()
-          .required("Este campo es obligatorio")
-          .typeError("Debe ser numerico"),
+        valorProducto: Yup.number().required("Este campo es obligatorio").typeError("Debe ser numerico"),
+        cantidadProducto: Yup.number().required("Este campo es obligatorio").typeError("Debe ser numerico"),
+        valorTotalCompra: Yup.number().required("Este campo es obligatorio").typeError("Debe ser numerico"),
         bodegaProducto: Yup.string().required("Este campo es obligatorio"),
       })}
       onSubmit={handleSubmit}
+      initialErrors={initialValues}
     >
-      {({ dirty, isValid, values }) => (
+      {({ dirty, isValid, values , setFieldTouched , handleSubmit , isValidating}) => (
         <Form>
           <ContainerFactura>
             <ContainerDatosPersonales>
               <Titulo>Datos Vendedor</Titulo>
-              <Input
-                autoComplete="folio-factura"
-                type="text"
-                name="folio"
-                placeholder="Folio de factura"
-              />
-              <Input
-                autoComplete="fecha-factura"
-                type="date"
-                name="fecha"
-                placeholder="Fecha de factura"
-              />
-              <Input
-                autoComplete="nombre-factura"
-                type="text"
-                name="nombre"
-                placeholder="Nombre representante empresa"
-              />
-              <Input
-                autoComplete="rut-factura"
-                type="text"
-                name="rut"
-                placeholder="RUT"
-              />
+              <Input autoComplete="folio-factura" type="text" name="folio" placeholder="Folio de factura"/>
+              <Input autoComplete="fecha-factura" type="date" name="fecha" placeholder="Fecha de factura"/>
+              <Input autoComplete="nombre-factura" type="text" name="nombre" placeholder="Nombre representante empresa"/>
+              <Input autoComplete="rut-factura" type="text" name="rut" placeholder="RUT"/>
               <Radio name="pagado" value="true" label="Pagado" />
               <Radio name="pagado" value="false" label="No pagado" />
             </ContainerDatosPersonales>
 
             <ContainerDetalleFactura>
               <Titulo>Detalle de compra</Titulo>
-              <Input
-                autoComplete="nombre-producto"
-                type="text"
-                name="nombreProducto"
-                placeholder="Nombre del producto"
-              />
-              <Input
-                autoComplete="valor-producto"
-                type="text"
-                name="valorProducto"
-                placeholder="Valor del producto"
-              />
-              <Input
-                autoComplete="cantidad-producto"
-                type="text"
-                name="cantidadProducto"
-                placeholder="Cantidad"
-              />
-              <Input
-                autoComplete="valor-total-producto"
-                type="text"
-                name="valorTotalCompra"
-                placeholder="Valor Total"
-              />
-              <Input
-                autoComplete="bodega-producto"
-                type="text"
-                name="bodegaProducto"
-                placeholder="Bodega"
-              />
-              <Button
-                type="button"
-                onClick={() => handleAgregarProducto(values)}
-                disabled={!dirty || !isValid}
-              >
+              <Input autoComplete="nombre-producto" type="text" name="nombreProducto" placeholder="Nombre del producto"/>
+              <Input autoComplete="valor-producto" type="text" name="valorProducto" placeholder="Valor del producto"/>
+              <Input autoComplete="cantidad-producto" type="text" name="cantidadProducto" placeholder="Cantidad"/>
+              <Input autoComplete="valor-total-producto" type="text" name="valorTotalCompra" placeholder="Valor Total"/>
+              <Input autoComplete="bodega-producto" type="text" name="bodegaProducto" placeholder="Bodega"/>
+              <Button type="button" onClick={() => handleAgregarProducto(values, isValid ) }  /*disabled={!isValid}*/>
                 Agregar producto
               </Button>
             </ContainerDetalleFactura>
           </ContainerFactura>
 
           <Button type="submit">Crear Factura</Button>
+
         {producto.length > 0 && producto !== null ? (
           <TableProductosAgregados data={producto}/>
         ) : (null)}
