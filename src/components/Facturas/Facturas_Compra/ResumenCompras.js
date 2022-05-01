@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { FacturasCompra } from "../../../example_data_base/DataExample";
 import { Button } from "../../Button";
-import { formatter } from "../../DashboardImexa/Card/Card";
 import {
   Table,
   TableBody,
@@ -10,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "../../DashboardImexa/Card/card-table-styles";
+import { DetallesFactura } from "../DetallesFactura";
 
 export const ResumenCompras = () => {
 
@@ -22,6 +22,11 @@ export const ResumenCompras = () => {
   //     )
   //   );
   // }, []);
+
+  const verDetalles = ( _id ) => {
+    return <DetallesFactura detalle={facturaCompra.find( compra => compra._id === _id)} tipo={"compra"}/>
+  }
+
 
   return (
     <>
@@ -39,7 +44,7 @@ export const ResumenCompras = () => {
         </TableHead>
         {facturaCompra.length > 0 && facturaCompra != null
           ? facturaCompra.map((compra) => (
-              <TableBody key={compra.factura.folio}>
+              <TableBody key={compra.factura._id}>
                 <TableRow>
                   <TableData>{compra.factura.folio}</TableData>
                   <TableData>{compra.factura.fecha}</TableData>
@@ -48,7 +53,16 @@ export const ResumenCompras = () => {
                   <TableData>
                     {compra.factura.pagado === "false" ? "No pagado" : "Pagado"}
                   </TableData>
-                  <TableData>Detalle</TableData>
+                  <TableData>
+                    <Button
+                      customFontSize={"1vw"}
+                      customWidth={"70%"}
+                      Hover={"false"}
+                      onClick={ ()=> verDetalles(compra._id)}
+                    >
+                      Ver detalles
+                    </Button>
+                  </TableData>
 
                   <TableData>
                     {compra.factura.pagado === "true" ? (

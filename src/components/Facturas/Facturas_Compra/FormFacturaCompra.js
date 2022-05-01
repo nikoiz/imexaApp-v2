@@ -11,6 +11,8 @@ import { Input } from "../../Input";
 import { Radio } from "../../Radio";
 import { Button } from "../../Button";
 import { TableProductosAgregados } from "../TableProductosAgregados";
+import _uniqueId  from 'lodash/uniqueId'
+
 
 export const FormFacturaCompra = (props) => {
 
@@ -39,8 +41,12 @@ export const FormFacturaCompra = (props) => {
   const handleAgregarProducto = (values, isValid) => {
       
     const { folio, fecha, nombre, rut, pagado, nombreProducto, valorProducto, cantidadProducto, valorTotalCompra, bodegaProducto } = values;
+    const prefix = Math.random().toString(36).slice(2);
+    const prefixFactura = Math.random().toString(36).slice(2);
+    const prefixDetalle = Math.random().toString(36).slice(2);
 
     const detalleProducto = {
+      _id: _uniqueId(prefixDetalle + '-' + folio + '-' + nombreProducto.slice(0, 4) + "-"),
       nombreProducto: nombreProducto,
       valorProducto: valorProducto,
       cantidadProducto: cantidadProducto,
@@ -49,6 +55,7 @@ export const FormFacturaCompra = (props) => {
     };
 
     const datosFactura = {
+      _id: _uniqueId(prefixFactura + '-' + folio + "-" ),
       folio: folio,
       fecha: fecha,
       nombre: nombre,
@@ -58,7 +65,7 @@ export const FormFacturaCompra = (props) => {
 
     if (isValid) {
       if (Object.keys(compra.factura).length === 0) {
-        setCompra({ ...compra, factura: { ...datosFactura }, detalle: [...compra.detalle, detalleProducto] });
+        setCompra({ ...compra, _id: _uniqueId(prefix + '-' + folio + '-'), factura: { ...datosFactura }, detalle: [...compra.detalle, detalleProducto] });
         setProducto([...producto, detalleProducto]);
 
         alert("Factura creada \nProducto agregado");
