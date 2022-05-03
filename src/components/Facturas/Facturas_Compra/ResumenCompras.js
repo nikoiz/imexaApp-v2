@@ -17,13 +17,9 @@ export const ResumenCompras = () => {
   const [showModal, setShowModal] = useState(false)
   const [data, setData] = useState(null)
   
-  // const changePaidState = useCallback(( id ) => {
-  //   setFacturaCompra((compra) =>
-  //     compra.map(item =>     
-  //        item._id === id ? { ...item, factura: {...item.factura, pagado: true}  } : item
-  //     )
-  //   );
-  // }, []);
+  const changePaidState = () => {
+    setFacturaCompra(FacturasCompra)
+  }
 
   const verDetalles = ( _id ) => {
     setShowModal(true)
@@ -44,7 +40,7 @@ export const ResumenCompras = () => {
             <TableHeader>RUT</TableHeader>
             <TableHeader>Pagado</TableHeader>
             <TableHeader>Detalle</TableHeader>
-            {/* <TableHeader>Acciones</TableHeader> */}
+            <TableHeader>Acciones</TableHeader>
           </TableRow>
         </TableHead>
         {facturaCompra.length > 0 && facturaCompra != null
@@ -68,8 +64,7 @@ export const ResumenCompras = () => {
                       Ver detalles
                     </Button>
                   </TableData>
-
-                  {/* <TableData>
+                  <TableData>
                     {compra.factura.pagado === "true" ? (
                       "--"
                     ) : (
@@ -77,12 +72,12 @@ export const ResumenCompras = () => {
                         customFontSize={"1vw"}
                         customWidth={"70%"}
                         Hover={"false"}
-                        // onClick={() => changePaidState(compra._id)}
+                        onClick={() => changePaidState()}
                       >
                         Pagar Factura
                       </Button>
                     )}
-                  </TableData> */}
+                  </TableData>
                 </TableRow>
               </TableBody>
             ))

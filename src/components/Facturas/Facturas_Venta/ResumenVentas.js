@@ -22,6 +22,9 @@ export const ResumenVentas = () => {
     setData(facturaVenta.find( venta => venta._id === _id))
   }
 
+  const changePaidState = () => {
+    setFacturaVenta(FacturaVenta)
+  }
   return (
     <>
       <Modal data={data} show={showModal} onClose={() => setShowModal(false)} tipo={'venta'} />
@@ -35,7 +38,7 @@ export const ResumenVentas = () => {
             <TableHeader>RUT</TableHeader>
             <TableHeader>Pagado</TableHeader>
             <TableHeader>Detalle</TableHeader>
-            {/* <TableHeader>Acciones</TableHeader> */}
+            <TableHeader>Acciones</TableHeader>
           </TableRow>
         </TableHead>
         {facturaVenta.length > 0 && facturaVenta != null
@@ -59,7 +62,7 @@ export const ResumenVentas = () => {
                       Ver detalles
                     </Button>
                   </TableData>
-{/* 
+
                   <TableData>
                     {venta.factura.pagado === "true" ? (
                       "--"
@@ -68,12 +71,12 @@ export const ResumenVentas = () => {
                         customFontSize={"1vw"}
                         customWidth={"70%"}
                         Hover={"false"}
-                        // onClick={() => changePaidState(compra._id)}
+                        onClick={() => changePaidState()}
                       >
                         Pagar Factura
                       </Button>
                     )}
-                  </TableData> */}
+                  </TableData>
                 </TableRow>
               </TableBody>
             ))
