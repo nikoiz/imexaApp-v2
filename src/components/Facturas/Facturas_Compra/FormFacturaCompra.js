@@ -12,7 +12,7 @@ import { Radio } from "../../Radio";
 import { Button } from "../../Button";
 import { TableProductosAgregados } from "../TableProductosAgregados";
 import _uniqueId  from 'lodash/uniqueId'
-
+import { formatter } from "../../DashboardImexa/Card/Card";
 
 export const FormFacturaCompra = (props) => {
 
@@ -40,7 +40,7 @@ export const FormFacturaCompra = (props) => {
 
   const handleAgregarProducto = (values, isValid) => {
       
-    const { folio, fecha, nombre, rut, pagado, nombreProducto, valorProducto, cantidadProducto, valorTotalCompra, bodegaProducto } = values;
+    const { folio, fecha, nombre, rut, pagado, nombreProducto, valorProducto, cantidadProducto, bodegaProducto } = values;
     const prefix = Math.random().toString(36).slice(2);
     const prefixFactura = Math.random().toString(36).slice(2);
     const prefixDetalle = Math.random().toString(36).slice(2);
@@ -50,7 +50,7 @@ export const FormFacturaCompra = (props) => {
       nombreProducto: nombreProducto,
       valorProducto: valorProducto,
       cantidadProducto: cantidadProducto,
-      valorTotalCompra: valorTotalCompra,
+      valorTotalCompra: valorProducto * cantidadProducto,
       bodegaProducto: bodegaProducto,
     };
 
@@ -91,11 +91,12 @@ export const FormFacturaCompra = (props) => {
         nombreProducto: Yup.string().required("Este campo es obligatorio"),
         valorProducto: Yup.number().required("Este campo es obligatorio").typeError("Debe ser numerico"),
         cantidadProducto: Yup.number().required("Este campo es obligatorio").typeError("Debe ser numerico"),
-        valorTotalCompra: Yup.number().required("Este campo es obligatorio").typeError("Debe ser numerico"),
+        valorTotalCompra: Yup.number().typeError("Debe ser numerico"),
         bodegaProducto: Yup.string().required("Este campo es obligatorio"),
       })}
       onSubmit={handleSubmit}
       initialErrors={initialValues}
+      
     >
       {({ dirty, isValid, values }) => (
         <Form>
@@ -115,7 +116,14 @@ export const FormFacturaCompra = (props) => {
               <Input autoComplete="nombre-producto" type="text" name="nombreProducto" placeholder="Nombre del producto"/>
               <Input autoComplete="valor-producto" type="text" name="valorProducto" placeholder="Valor del producto"/>
               <Input autoComplete="cantidad-producto" type="text" name="cantidadProducto" placeholder="Cantidad"/>
-              <Input autoComplete="valor-total-producto" type="text" name="valorTotalCompra" placeholder="Valor Total"/>
+              <Input 
+              autoComplete="valor-total-producto" 
+              type="text" 
+              name="valorTotalCompra" 
+              placeholder="Valor Total" 
+              value={formatter.format(values.cantidadProducto * values.valorProducto)} 
+              disabled
+              />
               <Input autoComplete="bodega-producto" type="text" name="bodegaProducto" placeholder="Bodega"/>
               <Button type="button" onClick={() => handleAgregarProducto(values, isValid ) } disabled={!isValid || !dirty}>
                 Agregar producto
@@ -126,7 +134,7 @@ export const FormFacturaCompra = (props) => {
           <Button type="submit" disabled={!isValid || !dirty}>Crear Factura </Button>
 
         {producto.length > 0 && producto !== null ? (
-          <TableProductosAgregados data={producto}/>
+          <TableProductosAgregados data={producto} tipo={'compra'}/>
         ) : (null)}
 
         </Form>

@@ -65,64 +65,51 @@ export const Gastos = [
   },
 ];
 
-export const FacturasCompra = [];
+export const FacturasCompra = [
+  {
+    _id: "111111",
+    factura: {
+      _id: "62257001e6bf96613e3c5428",
+      folio: "52352",
+      fecha: "2022-03-05",
+      nombre: "Nicolas Rozas",
+      rut: "11.111.111-1",
+      pagado: true,
+    },
+    detalle: [
+      {
+        _id: "11111111",
+        nombreProducto: "Manzanas",
+        valorProducto: "15000",
+        cantidadProducto: "2",
+        valorTotalCompra: "30000",
+        bodegaProducto: "Bodega 1",
+      },
+    ],
+  },
+];
 
 export const FacturaVenta = [
   {
-    _id: "62257029d64d3f752dc87b3b",
-    description: "VANTAGE",
-    value: 816539,
-    warehouse: "Gorst 0",
-    date: "03-03-2022",
-    paid: true,
-  },
-  {
-    _id: "62257029af4e0d01bcf27c69",
-    description: "ESCHOIR",
-    value: 1845743,
-    warehouse: "Omar 3",
-    date: "03-03-2022",
-    paid: false,
-  },
-  {
-    _id: "622570299b8cf5cd02508f10",
-    description: "DARWINIUM",
-    value: 3621631,
-    warehouse: "Iola 3",
-    date: "04-02-2022",
-    paid: false,
-  },
-  {
-    _id: "622570294f1fb0617ff17f41",
-    description: "XANIDE",
-    value: 2087062,
-    warehouse: "Alfarata 0",
-    date: "04-02-2022",
-    paid: true,
-  },
-  {
-    _id: "622570298cb3bb2b3bff43b4",
-    description: "GROK",
-    value: 2239802,
-    warehouse: "Bethpage 0",
-    date: "08-01-2022",
-    paid: true,
-  },
-  {
-    _id: "62257029893691dc5b206ae5",
-    description: "CEPRENE",
-    value: 2186425,
-    warehouse: "Spokane 2",
-    date: "02-02-2022",
-    paid: true,
-  },
-  {
-    _id: "62257029f74a1852f8cbc4e7",
-    description: "FIBRODYNE",
-    value: 2650000,
-    warehouse: "Roulette 0",
-    date: "26-02-2022",
-    paid: false,
+    _id: "111111",
+    factura: {
+      _id: "62257001e6bf96613e3c5428",
+      folio: "52352",
+      fecha: "2022-03-05",
+      nombre: "Nicolas Rozas",
+      rut: "11.111.111-1",
+      pagado: true,
+    },
+    detalle: [
+      {
+        _id: "11111111",
+        nombreProducto: "Peras",
+        valorProducto: "15000",
+        cantidadProducto: "2",
+        valorTotalCompra: "30000",
+        bodegaProducto: "Bodega 1",
+      },
+    ],
   },
 ];
 

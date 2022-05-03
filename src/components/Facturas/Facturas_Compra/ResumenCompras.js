@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import { FacturasCompra } from "../../../example_data_base/DataExample";
 import { Button } from "../../Button";
 import {
@@ -9,27 +9,32 @@ import {
   TableHeader,
   TableRow,
 } from "../../DashboardImexa/Card/card-table-styles";
-import { DetallesFactura } from "../DetallesFactura";
+import { Modal } from "../../Modal/Modal";
 
 export const ResumenCompras = () => {
 
   const [facturaCompra, setFacturaCompra] = useState(FacturasCompra);
-
-  // const changePaidState = useCallback((folio) => {
+  const [showModal, setShowModal] = useState(false)
+  const [data, setData] = useState(null)
+  
+  // const changePaidState = useCallback(( id ) => {
   //   setFacturaCompra((compra) =>
-  //     compra.map((item) =>
-  //       item.factura.folio === folio ? { ...item, pagado: !item.factura.pagado } : item
+  //     compra.map(item =>     
+  //        item._id === id ? { ...item, factura: {...item.factura, pagado: true}  } : item
   //     )
   //   );
   // }, []);
 
   const verDetalles = ( _id ) => {
-    return <DetallesFactura detalle={facturaCompra.find( compra => compra._id === _id)} tipo={"compra"}/>
+    setShowModal(true)
+    setData(facturaCompra.find( compra => compra._id === _id))
   }
 
 
   return (
     <>
+      <Modal data={data} show={showModal} onClose={() => setShowModal(false)} tipo={'compra'} />
+
       <Table>
         <TableHead>
           <TableRow>
@@ -58,7 +63,7 @@ export const ResumenCompras = () => {
                       customFontSize={"1vw"}
                       customWidth={"70%"}
                       Hover={"false"}
-                      onClick={ ()=> verDetalles(compra._id)}
+                      onClick={() => verDetalles(compra._id)}
                     >
                       Ver detalles
                     </Button>
@@ -72,7 +77,7 @@ export const ResumenCompras = () => {
                         customFontSize={"1vw"}
                         customWidth={"70%"}
                         Hover={"false"}
-                        // onClick={() => changePaidState(compra.factura.folio)}
+                        // onClick={() => changePaidState(compra._id)}
                       >
                         Pagar Factura
                       </Button>

@@ -11,7 +11,7 @@ import { formatter } from "../DashboardImexa/Card/Card";
 import { ContainerTableProductos } from "./form-factura-styles";
 
 export const TableProductosAgregados = (props) => {
-  const { data } = props;
+  const { data, tipo } = props;
 
   return (
     <>
@@ -39,7 +39,11 @@ export const TableProductosAgregados = (props) => {
                     </TableData>
                     <TableData>{producto.cantidadProducto}</TableData>
                     <TableData>
-                      {formatter.format(producto.valorTotalCompra)}
+                      {tipo === "compra"
+                        ? formatter.format(producto.valorTotalCompra)
+                        : tipo === "venta"
+                        ? formatter.format(producto.valorTotalVenta)
+                        : null}
                     </TableData>
                     <TableData>{producto.bodegaProducto}</TableData>
                   </TableRow>

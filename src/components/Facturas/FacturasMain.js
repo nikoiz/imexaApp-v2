@@ -7,7 +7,7 @@ import { SideMenu } from "../DashboardImexa/Sidebar/SideMenu";
 import { Navbar } from "../Navbar/Navbar";
 import { AddFactura } from "./AddFactura";
 import { MenuFacturas } from "./facturas-options-menu";
-import { FacturasCompras } from "./Facturas_Compra/FacturasCompras";
+import { ResumenCompras } from "./Facturas_Compra/ResumenCompras";
 import { ResumenVentas } from "./Facturas_Venta/ResumenVentas";
 import { ResumenFacturas } from "./ResumenFacturas";
 
@@ -22,8 +22,8 @@ export const FacturasMain = () => {
         <Main customPadding={"15"} customBackground={"#DDDDDD"}>
           <Routes>
             <Route path="resumenFacturas" element={<ResumenFacturas />} />
-
-            <Route path="resumenCompras" element={<FacturasCompras />} />
+            
+            <Route path="resumenCompras" element={<ResumenCompras />} />
             <Route path="addCompra" element={<AddFactura tipoFactura={'compra'}/>} />
             
             <Route path="resumenVentas" element={<ResumenVentas />} />

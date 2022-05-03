@@ -8,7 +8,6 @@ export const Table = styled.table`
   overflow: hidden;
   color: #fefbf3;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.2);
-  opacity: 0.8;
 `;
 
 export const TableElements = styled.th`
