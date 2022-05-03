@@ -10,8 +10,7 @@ export const MainDashboard = () => {
   return (
     <>
       <Navbar />
-      <Container>
-        <Sidebar>SideBar</Sidebar>
+      <Container sidebar={false}>
         <Main>
           <CardGrid>
             <Card />

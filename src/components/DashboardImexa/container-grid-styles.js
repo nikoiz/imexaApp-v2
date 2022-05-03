@@ -9,12 +9,15 @@ export const Container = styled.div`
   grid-gap: 0.25rem;
   grid-template-columns: 0.2fr 1fr;
   grid-template-rows: auto;
-  grid-template-areas: "sidebar main main main";
+  ${(props) =>
+    props.sidebar !== undefined && props.sidebar === false
+      ? 'grid-template-areas: "main main main main";'
+      : 'grid-template-areas: "sidebar main main main";'}
+
   transition: all 0.25s ease-in-out;
   font-size: calc(1 * (0.7vw + 0.7vh));
 
-
-  @media (max-width:${(props) => props.maxWidth || 750}px) {
+  @media (max-width: ${(props) => props.maxWidth || 750}px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-template-areas:
