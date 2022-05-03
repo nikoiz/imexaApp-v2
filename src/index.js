@@ -10,5 +10,6 @@ ReactDOM.render(
       <ImexaApp />
     </BrowserRouter>
   </React.StrictMode>,
+  
   document.getElementById("root")
 );
