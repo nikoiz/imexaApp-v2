@@ -67,10 +67,11 @@ export const Gastos = [
 
 export const FacturasCompra = [
   {
-    _id: "111111",
+    _id: "111119871",
+    tipo:'compra',
     factura: {
-      _id: "62257001e6bf96613e3c5428",
-      folio: "52352",
+      _id: "62257001e6bf96613e3c5428987",
+      folio: "111111",
       fecha: "2022-03-05",
       nombre: "Nicolas Rozas",
       rut: "11.111.111-1",
@@ -78,7 +79,7 @@ export const FacturasCompra = [
     },
     detalle: [
       {
-        _id: "11111111",
+        _id: "11119874521111",
         nombreProducto: "Manzanas",
         valorProducto: "15000",
         cantidadProducto: "2",
@@ -91,10 +92,11 @@ export const FacturasCompra = [
 
 export const FacturaVenta = [
   {
-    _id: "111111",
+    _id: "11143589111",
+    tipo:'venta',
     factura: {
-      _id: "62257001e6bf96613e3c5428",
-      folio: "52352",
+      _id: "62257001e6bf96613e3c5428321321",
+      folio: "222222",
       fecha: "2022-03-05",
       nombre: "Nicolas Rozas",
       rut: "11.111.111-1",
@@ -102,11 +104,11 @@ export const FacturaVenta = [
     },
     detalle: [
       {
-        _id: "11111111",
+        _id: "111165651111",
         nombreProducto: "Peras",
         valorProducto: "15000",
         cantidadProducto: "2",
-        valorTotalCompra: "30000",
+        valorTotalVenta: "30000",
         bodegaProducto: "Bodega 1",
       },
     ],

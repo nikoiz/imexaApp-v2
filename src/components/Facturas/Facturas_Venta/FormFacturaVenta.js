@@ -66,7 +66,13 @@ export const FormFacturaVenta = ( props ) => {
 
     if (isValid) {
       if (Object.keys(venta.factura).length === 0) {
-        setVenta({ ...venta, _id: _uniqueId(prefix + '-' + folio + '-'), factura: { ...datosFactura }, detalle: [...venta.detalle, detalleProducto] });
+        setVenta({
+          ...venta,
+          _id: _uniqueId(prefix + "-" + folio + "-"),
+          tipo:'venta',
+          factura: { ...datosFactura },
+          detalle: [...venta.detalle, detalleProducto],
+        });
         setProducto([...producto, detalleProducto]);
 
         alert("Factura creada \nProducto agregado");

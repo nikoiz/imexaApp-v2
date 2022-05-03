@@ -44,7 +44,7 @@ export const ResumenCompras = () => {
             <TableHeader>RUT</TableHeader>
             <TableHeader>Pagado</TableHeader>
             <TableHeader>Detalle</TableHeader>
-            <TableHeader>Acciones</TableHeader>
+            {/* <TableHeader>Acciones</TableHeader> */}
           </TableRow>
         </TableHead>
         {facturaCompra.length > 0 && facturaCompra != null
@@ -69,7 +69,7 @@ export const ResumenCompras = () => {
                     </Button>
                   </TableData>
 
-                  <TableData>
+                  {/* <TableData>
                     {compra.factura.pagado === "true" ? (
                       "--"
                     ) : (
@@ -82,7 +82,7 @@ export const ResumenCompras = () => {
                         Pagar Factura
                       </Button>
                     )}
-                  </TableData>
+                  </TableData> */}
                 </TableRow>
               </TableBody>
             ))

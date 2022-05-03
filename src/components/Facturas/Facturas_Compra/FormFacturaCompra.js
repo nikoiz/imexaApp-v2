@@ -65,7 +65,13 @@ export const FormFacturaCompra = (props) => {
 
     if (isValid) {
       if (Object.keys(compra.factura).length === 0) {
-        setCompra({ ...compra, _id: _uniqueId(prefix + '-' + folio + '-'), factura: { ...datosFactura }, detalle: [...compra.detalle, detalleProducto] });
+        setCompra({
+          ...compra,
+          _id: _uniqueId(prefix + "-" + folio + "-"),
+          tipo: 'compra',
+          factura: { ...datosFactura },
+          detalle: [...compra.detalle, detalleProducto],
+        });
         setProducto([...producto, detalleProducto]);
 
         alert("Factura creada \nProducto agregado");

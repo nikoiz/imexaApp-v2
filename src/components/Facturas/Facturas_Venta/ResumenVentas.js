@@ -35,7 +35,7 @@ export const ResumenVentas = () => {
             <TableHeader>RUT</TableHeader>
             <TableHeader>Pagado</TableHeader>
             <TableHeader>Detalle</TableHeader>
-            <TableHeader>Acciones</TableHeader>
+            {/* <TableHeader>Acciones</TableHeader> */}
           </TableRow>
         </TableHead>
         {facturaVenta.length > 0 && facturaVenta != null
@@ -59,7 +59,7 @@ export const ResumenVentas = () => {
                       Ver detalles
                     </Button>
                   </TableData>
-
+{/* 
                   <TableData>
                     {venta.factura.pagado === "true" ? (
                       "--"
@@ -73,7 +73,7 @@ export const ResumenVentas = () => {
                         Pagar Factura
                       </Button>
                     )}
-                  </TableData>
+                  </TableData> */}
                 </TableRow>
               </TableBody>
             ))
