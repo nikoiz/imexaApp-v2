@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  background-color: #316b83;
+  background-color: #101010;
   border-radius: 4px;
   overflow: hidden;
   color: #fefbf3;
@@ -25,15 +25,15 @@ export const TableRow = styled.tr``;
 export const TableHead = styled.thead``;
 
 export const TableBody = styled.tbody`
-  background-color: #8ca1a5;
+  background-color: #1B515B;
   border: 1px solid rgb(255, 255, 255, 0.4);
 
   &:nth-child(even) {
   }
 
   &:hover {
-    background-color: #aaa;
+    background-color: #FEBA33;
     cursor: pointer;
-    color: floralwhite;
+    color: #1B515B;
   }
 `;

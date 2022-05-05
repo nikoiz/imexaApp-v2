@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  background: #334756;
+  background: #1B515B;
   color: white;
   font-size: ${(props) => props.customFontSize || "1.5em"};
   font-family: Roboto;
   cursor: pointer;
   padding: 0.25em 1em;
-  border: solid 2px #1c6dd0;
+  border: solid 2px #101010 ;
   border-radius: 4px;
   width: ${(props) => props.customWidth || "100%"};
   transition: all 0.3s ease-out;
@@ -32,7 +32,7 @@ export const Button = styled.button`
     transition: all 0.2s ease;
   }`
       : `&:hover {
-        background: #FF4C29;
+        background: #101010;
         font-size:1.6em;
         transition: all 0.2s ease;
       }`}

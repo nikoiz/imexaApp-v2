@@ -1,10 +1,11 @@
 import React from "react";
+import { Titulo } from "../Card/card-styles";
 import { ItemList, LinkStyled } from "./side-menu-styles";
 
 export const SideMenu = ({ data, label }) => {
   return (
     <>
-      <h1>Menu {label}</h1>
+      <Titulo>Menu {label}</Titulo>
       <div>
         {data.map((option) => (
           <LinkStyled key={option.name} to={option.link}>

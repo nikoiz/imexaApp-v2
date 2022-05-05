@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const MyCard = styled.div`
   width: 100%;
   height: 100%;
-  background: #a6b8b9;
+  background: #FEBA33;
   padding: 0.25rem;
   border-radius: 4px;
   border: 1px solid rgba(0, 0, 0, 0.3);
@@ -16,7 +16,7 @@ export const MyCard = styled.div`
 
 export const Titulo = styled.h1`
   text-align: center;
-  color: #eee;
+  color: #101010;
   font-family: Roboto;
   // font-size: 20px;
   padding: 5px;

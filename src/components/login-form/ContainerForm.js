@@ -6,7 +6,7 @@ export const ContainerForm = styled.div`
   padding: 15px;
 
   border: solid 1px rgb(0, 0, 0, 0.6);
-  background-color: #f7f7f7;
+  background-color: #FEBA33;
   border-radius: 4px;
   box-shadow: 2px 3px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;

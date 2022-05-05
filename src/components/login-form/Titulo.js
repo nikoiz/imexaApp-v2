@@ -2,5 +2,5 @@ import styled from "styled-components";
 
 export const Titulo = styled.h1`
   text-align: center;
-  color: #334756;
+  color: #101010;
 `;

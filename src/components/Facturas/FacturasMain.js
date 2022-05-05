@@ -19,7 +19,7 @@ export const FacturasMain = () => {
         <Sidebar>
           <SideMenu data={MenuFacturas} label={"Facturas"} />
         </Sidebar>
-        <Main customPadding={"15"} customBackground={"#DDDDDD"}>
+        <Main customPadding={"15"} customBackground={"#2E3034"}>
           <Routes>
             <Route path="resumenFacturas" element={<ResumenFacturas />} />
             

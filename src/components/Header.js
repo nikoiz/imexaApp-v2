@@ -3,9 +3,10 @@ import React from "react";
 
 const MyHeader = styled.header`
   font-size: 45px;
-  font-family: Lato, Roboto, sans-serif;
-  background-color: #334756;
-  color: #fff;
+  font-family: Roboto, Lato, sans-serif;
+  background-color: #FEBA33;
+  font-weight:bold;
+  color: #101010;
   padding: 15px;
   text-align: center;
   box-shadow: 0 5px rgb(40, 0, 0, 0.3);

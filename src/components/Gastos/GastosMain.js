@@ -17,10 +17,10 @@ export const GastosMain = () => {
         <Sidebar>
           <SideMenu data={MenuGastos} label={"Gastos"} />
         </Sidebar>
-        <Main customPadding={"15"} customBackground={'#DDDDDD'}>
+        <Main customPadding={"15"} customBackground={"#2E3034"}>
           <Routes>
-            <Route path="add" element={<AddGasto/>} />
-            <Route path="resumen" element={<ResumenGastos/>} />
+            <Route path="add" element={<AddGasto />} />
+            <Route path="resumen" element={<ResumenGastos />} />
           </Routes>
         </Main>
       </Container>
