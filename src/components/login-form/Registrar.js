@@ -5,8 +5,8 @@ import { ContainerForm } from "./ContainerForm";
 import { Titulo } from "./Titulo";
 import { Input } from "../Input";
 import { Button } from "../Button";
-import { Header } from "../Header";
 import { useNavigate } from "react-router-dom";
+import { Header } from "./Header";
 
 export const Registrar = () => {
   let navigate = useNavigate();

@@ -13,7 +13,7 @@ export const ModalContainer = styled.div`
 `;
 export const ModalContent = styled.div`
   padding: 10px;
-  background-color: #fff;
+  background-color: #eee;
   color: black;
   border-radius: 5px;
 `;

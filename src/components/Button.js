@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  background: #1B515B;
+  background: ${(props) => props.customBg || '#044A42'};
   color: white;
   font-size: ${(props) => props.customFontSize || "1.5em"};
   font-family: Roboto;
@@ -15,10 +15,10 @@ export const Button = styled.button`
   margin-bottom: 20px;
 
   &:disabled {
-    background-color: gray;
+    background-color: #19282F;
     cursor: not-allowed;
     &:hover {
-      background: gray;
+      background: #19282F;
       width: ${(props) => props.customWidth || "100%"};
       font-size: ${(props) => props.customFontSize || "1.5em"};
 
@@ -32,7 +32,7 @@ export const Button = styled.button`
     transition: all 0.2s ease;
   }`
       : `&:hover {
-        background: #101010;
+        background: #062925;
         font-size:1.6em;
         transition: all 0.2s ease;
       }`}

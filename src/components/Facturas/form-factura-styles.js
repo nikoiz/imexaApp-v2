@@ -7,10 +7,14 @@ export const ContainerFactura = styled.div`
   height: 100%;
   width: 100%;
   grid-gap: 3px;
+
+  & div {
+    color: #eee;
+  }
 `;
 export const ContainerDatosPersonales = styled.div`
   border: solid 1px rgb(0, 0, 0, 0.6);
-  background-color: #f7f7f7;
+  background-color: #3A9188;
   border-radius: 4px;
   box-shadow: 2px 3px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
@@ -21,7 +25,7 @@ export const ContainerDatosPersonales = styled.div`
 
 export const ContainerDetalleFactura = styled.div`
   border: solid 1px rgb(0, 0, 0, 0.6);
-  background-color: #f7f7f7;
+  background-color: #3A9188;
   border-radius: 4px;
   box-shadow: 2px 3px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;

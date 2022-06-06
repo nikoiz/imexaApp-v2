@@ -3,9 +3,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Button } from "../Button";
-import { Header } from "../Header";
 import { Input } from "../Input";
 import { ContainerForm } from "./ContainerForm";
+import { Header } from "./Header";
 import { Titulo } from "./Titulo";
 
 const Login = () => {
@@ -25,7 +25,7 @@ const Login = () => {
 
   return (
     <>
-      <Header>IMEXA App v2</Header>
+      <Header>Imexa App</Header>
       <Formik
         initialValues={initialValues}
         validationSchema={Yup.object({

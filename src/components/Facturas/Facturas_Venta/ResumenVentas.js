@@ -57,6 +57,7 @@ export const ResumenVentas = () => {
                       customFontSize={"1vw"}
                       customWidth={"70%"}
                       Hover={"false"}
+                      customBg={"#019267"}
                       onClick={() => verDetalles(venta._id)}
                     >
                       Ver detalles
@@ -71,6 +72,7 @@ export const ResumenVentas = () => {
                         customFontSize={"1vw"}
                         customWidth={"70%"}
                         Hover={"false"}
+                        customBg={"#019267"}
                         onClick={() => changePaidState()}
                       >
                         Pagar Factura

@@ -118,13 +118,13 @@ export const Card = () => {
               </TableHead>
 
               {FacturasCompra.map((compra, i) =>
-                !compra.paid ? (
+                !compra.factura.pagado ? (
                   <TableBody key={compra._id}>
                     <TableRow onClick={() => checkInfo(compra)}>
                       <TableData>{i}</TableData>
                       <TableData>{compra._id}</TableData>
-                      <TableData>{formatter.format(compra.value)}</TableData>
-                      <TableData>{compra.date}</TableData>
+                      <TableData>{formatter.format(parseInt(compra.detalle[0].valorTotalCompra))}</TableData>
+                      <TableData>{compra.factura.fecha}</TableData>
                     </TableRow>
                   </TableBody>
                 ) : null
@@ -143,13 +143,13 @@ export const Card = () => {
                 </TableRow>
               </TableHead>
               {FacturaVenta.map((venta, i) =>
-                !venta.paid ? (
+                !venta.factura.pagado ? (
                   <TableBody key={venta._id}>
                     <TableRow onClick={() => checkInfo(venta)}>
                       <TableData>{i}</TableData>
                       <TableData>{venta._id}</TableData>
-                      <TableData>{formatter.format(venta.value)}</TableData>
-                      <TableData>{venta.date}</TableData>
+                      <TableData>{formatter.format(parseInt(venta.detalle[0].valorTotalVenta))}</TableData>
+                      <TableData>{venta.factura.fecha}</TableData>
                     </TableRow>
                   </TableBody>
                 ) : null

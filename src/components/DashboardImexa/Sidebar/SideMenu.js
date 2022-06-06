@@ -10,7 +10,7 @@ export const SideMenu = ({ data, label }) => {
         {data.map((option) => (
           <LinkStyled key={option.name} to={option.link}>
             {option.hasOwnProperty("accion") ? (
-              <ItemList customBg={'rgb(6, 70, 99, 0.8)'} customMargin={"10%"}>{option.name}</ItemList>
+              <ItemList customBg={'#019267'} customMargin={"10%"}>{option.name}</ItemList>
             ) : (
               <ItemList>{option.name}</ItemList>
             )}

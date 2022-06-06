@@ -75,7 +75,7 @@ export const FacturasCompra = [
       fecha: "2022-03-05",
       nombre: "Nicolas Rozas",
       rut: "11.111.111-1",
-      pagado: true,
+      pagado: false ,
     },
     detalle: [
       {
@@ -100,7 +100,7 @@ export const FacturaVenta = [
       fecha: "2022-03-05",
       nombre: "Nicolas Rozas",
       rut: "11.111.111-1",
-      pagado: true,
+      pagado: false,
     },
     detalle: [
       {

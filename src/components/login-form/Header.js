@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import React from "react";
 
-const MyHeader = styled.header`
+const MyHeader = styled.div`
   font-size: 45px;
   font-family: Roboto, Lato, sans-serif;
-  background-color: #FEBA33;
+  background-color: #3A9188;
   font-weight:bold;
-  color: #101010;
+  color: #eee;
   padding: 15px;
   text-align: center;
-  box-shadow: 0 5px rgb(40, 0, 0, 0.3);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
+
 `;
 
 export const Header = ({ children }) => {

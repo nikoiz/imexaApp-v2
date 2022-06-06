@@ -61,7 +61,8 @@ export const ResumenFacturas = () => {
                     <Button
                       customFontSize={"1vw"}
                       customWidth={"70%"}
-                      Hover={"false"}
+                      Hover={"false"}                    customBg={"#019267"}
+
                       onClick={() => verDetalles(general._id)}
                     >
                       Ver detalles
@@ -76,6 +77,7 @@ export const ResumenFacturas = () => {
                         customFontSize={"1vw"}
                         customWidth={"70%"}
                         Hover={"false"}
+                        customBg={"#019267"}
                         onClick={() => changePaidState()}
                       >
                         Pagar Factura

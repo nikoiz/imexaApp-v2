@@ -14,11 +14,11 @@ export const ItemList = styled.li`
   transition: all 0.3s ease-out;
   font-family: Roboto;
   margin-left: ${(props) => props.customMargin};
-  background-color: ${(props) => props.customBg || '#101010'};
+  background-color: ${(props) => props.customBg || '#044A42'};
 
 
   &:hover {
-    background-color: #1B515B;
+    background-color: #062925;
     transition: all 0.2s ease;
   }
 `;

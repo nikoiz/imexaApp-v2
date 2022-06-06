@@ -2,7 +2,7 @@ import { useField } from "formik";
 import styled from "styled-components";
 
 const Label = styled.label`
-  color: black;
+  color: #eee;
   margin-left: 20px;
 `;
 

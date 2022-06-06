@@ -56,6 +56,7 @@ export const ResumenGastos = () => {
                     customFontSize={"1vw"}
                     customWidth={"70%"}
                     Hover={"false"}
+                    customBg={"#019267"}
                     onClick={() => changePaidState(gasto._id)}
                   >
                     Pagar gasto

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const MySidebar = styled.div`
-  background: #FEBA33;
+  background: #3A9188;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   box-sizing: border-box;
